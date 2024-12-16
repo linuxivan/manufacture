@@ -284,8 +284,8 @@ class QcInspectionLine(models.Model):
                 )
             else:
                 insp_line.valid_values = "{} ~ {}".format(
-                    formatLang(self.env, insp_line.min_value),
-                    formatLang(self.env, insp_line.max_value),
+                    formatLang(self.env, insp_line.min_value, digits=5),
+                    formatLang(self.env, insp_line.max_value, digits=5),
                 )
                 if self.env.ref("uom.group_uom") in self.env.user.groups_id:
                     insp_line.valid_values += " %s" % insp_line.test_uom_id.name
